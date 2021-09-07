@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import MainPageNew from "./components/MainPageNew"
+import HostFrame from './components/HostLive'
+import FinalPage from './components/FinalPage'
+// import AudianceFrame from './components/AudienceLive'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <Router>
+        <div>
+            <Switch>
+                <Route component={MainPageNew} path="/" exact/>
+                <Route component={HostFrame} path="/HostLive"/>
+                {/* <Route component={AudianceFrame} path="/AudienceLive" /> */}
+                <Route component={FinalPage} path="/Final"/>
+            </Switch>
+        </div>
+        </Router>
+    )
 }
 
-export default App;
+export default App
